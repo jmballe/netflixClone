@@ -44,7 +44,7 @@ export const apiBuilder = {
             const data = await response.json();
             return data;
         } catch (error) {
-            return error;
+            return [];
         }
     },
     tryGetImage: async(path,quality = 'posterLarge') => {
@@ -54,7 +54,7 @@ export const apiBuilder = {
             const data = await response.json();
             return data;
         } catch (error) {
-            return error;
+            return [];
         }
     }
 
