@@ -1,5 +1,15 @@
 .navbar{
     color: white;
+    position: fixed;
+    font-size: 14px;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: linear-gradient(to top,transparent 0%,rgb(0,0,0,0.6) 55%);
+}
+
+.scrolled{
+    background-color: var(--main-color);
 }
 
 .container {
@@ -42,9 +52,26 @@
 
 .options{
     display:none;
+    background-color: var(--main-color);
+    border-radius: 5px;
+}
+
+.profile span {
+    padding: 10px;
+    cursor: pointer;
 }
 
 .profile:hover .options{
     display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 50px;
+    top: 60px;
 }
 
+.containerOptions{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 10px;
+}
