@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { apiBuilder } from "../apiConfig";
 
 const useApi = (entity,lang = 'es',actualPage = 1) => {
     const [values,setValues] = useState([]);
@@ -34,7 +35,7 @@ const useApi = (entity,lang = 'es',actualPage = 1) => {
         } else {
             const selectedValue = values[randomIndex(0,values.length - 1)];
             setRandomValue(selectedValue);
-            const backGroundImage = apiBuilder.tryGetImg(
+            const backGroundImage = apiBuilder.tryGetImage(
                 selectedValue.backdrop_path,
                 'backdropLarge'
             );

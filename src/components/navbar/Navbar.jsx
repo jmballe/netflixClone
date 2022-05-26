@@ -22,8 +22,8 @@ const Navbar = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
             alt="Netflix Logo"
           />
-          <span>Homepage</span>
-          <span>Series</span>
+          <span>Home</span>
+          <span>TV Shows</span>
           <span>Movies</span>
           <span>New & Popular</span>
           <span>My list</span>
@@ -37,7 +37,7 @@ const Navbar = () => {
             alt="User Icon"
           />
           <div className={styles.profile}>
-            <ArrowDropDown className={styles.icon} />
+            <ArrowDropDown className={styles.iconArrow} />
             <div className={styles.options}>
                 <div className={styles.containerOptions}>
                     <Settings />

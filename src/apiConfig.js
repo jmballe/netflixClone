@@ -1,4 +1,4 @@
-import axios from axios
+// import axios from axios
 
 export const API = {
     baseUrl: 'https://api.themoviedb.org/3',
@@ -22,12 +22,12 @@ export const API = {
         backdropSmall: '/w300',
         backdropMedium: '/w780',
         backdropLarge: '/w1280',
-    }
+    },
 }
 
 export const createUrl = {
     api: (entity, lang = 'es', page = 1) => {
-        const url = `${API.baseUrl}${entity}${API.apiKey}${API.language[lang]}${API.pagination}${page}`;
+        const url = `${API.baseUrl}${API.entity[entity]}${API.apiKey}${API.language[lang]}${API.pagination}${page}`;
         return url;
     },
     image: (path, quality) => {
