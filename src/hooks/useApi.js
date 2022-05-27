@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { apiBuilder } from "../apiConfig";
+import {useEffect, useState} from 'react';
+import { apiBuilder, apiImageOptions, createUrl } from "../apiConfig";
 
 const useApi = (entity,lang = 'es',actualPage = 1) => {
     const [values,setValues] = useState([]);
@@ -11,9 +11,9 @@ const useApi = (entity,lang = 'es',actualPage = 1) => {
         setLoading(true);
         setError(null);
 
-        const res = await apiBuilder.tryGet(entity,lang, page);
+        const res = await apiBuilder.tryGet(entity,lang,page);
 
-        if(res.lenth ===0){
+        if(res.length === 0) {
             setError('Error en la carga de datos');
         } else {
             setValues(res);
@@ -29,18 +29,22 @@ const useApi = (entity,lang = 'es',actualPage = 1) => {
     const [randomImage,setRandomImage] = useState(null);
 
     const getRandomValue = () => {
-        const randomIndex = Math.floor(Math.random() * values.length);
+        const randomIndex = (min, max) => {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          };
         if(values.length === 0) {
             return
         } else {
             const selectedValue = values[randomIndex(0,values.length - 1)];
             setRandomValue(selectedValue);
-            const backGroundImage = apiBuilder.tryGetImage(
+            const backGroundImage = createUrl.image(
                 selectedValue.backdrop_path,
-                'backdropLarge'
+                apiImageOptions.backdropLarge
             );
+
+            setRandomImage(backGroundImage);
         }
-        setRandomImage(backGroundImage);
+
     }
 
     useEffect(() => {

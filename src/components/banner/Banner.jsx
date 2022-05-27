@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-// import { apiEntity } from "../../apiConfig";
+import { apiEntityOptions } from "../../apiConfig";
 import useApi from "../../hooks/useApi";
-// import Separator from "../Separator/Separator";
+import Separator from "../separator/Separator";
 import styles from "./Banner.module.css";
 
 const Banner = () => {
   const [movie, loading, error, randomMovie, backImg] = useApi(
-    "topRatedMovies"
+    apiEntityOptions.topRatedMovies
   );
 
   return (
@@ -21,12 +21,12 @@ const Banner = () => {
       }
     >
       <div className={styles.banner_gradient}>
-        {/* <Separator height={"250px"} /> */}
+        <Separator height={"250px"} />
 
         <div className={styles.banner_title}>
           <h1>{loading ? "Loading..." : randomMovie?.title}</h1>
         </div>
-        {/* <Separator height={"40px"} /> */}
+        <Separator height={"40px"} />
 
         <div>
           <h2>{loading ? "Loading..." : randomMovie?.overview}</h2>
