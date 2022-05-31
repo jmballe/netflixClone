@@ -55,7 +55,7 @@ export const createUrl = {
 }
 
 export const apiBuilder = {
-    tryGet: async (entity, lang = 'es', page = 1) => {
+    tryGet: async (entity, lang = 'en', page = 1) => {
         const url = createUrl.api(entity, lang, page);
         try {
             const res = await axios(url);

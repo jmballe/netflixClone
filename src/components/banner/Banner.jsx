@@ -4,10 +4,19 @@ import useApi from "../../hooks/useApi";
 import Separator from "../separator/Separator";
 import styles from "./Banner.module.css";
 
+
+
+
 const Banner = () => {
   const [movie, loading, error, randomMovie, backImg] = useApi(
     apiEntityOptions.topRatedMovies
   );
+  
+  const limitCharacters = (text) => {
+    if(text != undefined){
+      text = text.substring(0, 60) + "...";
+    }
+  }
 
   return (
     <div
@@ -21,15 +30,15 @@ const Banner = () => {
       }
     >
       <div className={styles.banner_gradient}>
-        <Separator height={"250px"} />
+        <Separator height={"200px"} />
 
         <div className={styles.banner_title}>
           <h1>{loading ? "Loading..." : randomMovie?.title}</h1>
         </div>
         <Separator height={"40px"} />
 
-        <div>
-          <h2>{loading ? "Loading..." : randomMovie?.overview}</h2>
+        <div className = {styles.banner_overview}>
+          <h2>{loading ? "Loading..." : randomMovie?.overview.split(".")[0]}</h2>
         </div>
         <div className={styles.banner_buttons}>
           <button
@@ -38,9 +47,9 @@ const Banner = () => {
               console.log(movie);
             }}
           >
-            MAS INFORMACION
+            Play
           </button>
-          <button className={styles.banner_button}>REPRODUCIR</button>
+          <button className={styles.banner_button2}>More info</button>
         </div>
       </div>
     </div>

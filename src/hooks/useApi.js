@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import { apiBuilder, apiImageOptions, createUrl } from "../apiConfig";
 
-const useApi = (entity,lang = 'es',actualPage = 1) => {
+const useApi = (entity,lang = 'en',actualPage = 1) => {
     const [values,setValues] = useState([]);
     const [loading,setLoading] = useState(true);
     const [error,setError] = useState(null);

@@ -26,7 +26,7 @@ const Navbar = () => {
           <span>TV Shows</span>
           <span>Movies</span>
           <span>New & Popular</span>
-          <span>My list</span>
+          <span>My List</span>
         </div>
         <div className={styles.right}>
           <Search className={styles.icon} />
