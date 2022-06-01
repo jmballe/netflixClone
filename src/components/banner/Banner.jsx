@@ -38,7 +38,7 @@ const Banner = () => {
         <Separator height={"40px"} />
 
         <div className = {styles.banner_overview}>
-          <h2>{loading ? "Loading..." : randomMovie?.overview.split(".")[0]}</h2>
+          <h2>{loading ? "Loading..." : randomMovie?.overview.split(".")[0] + (randomMovie ? "." : "") }</h2>
         </div>
         <div className={styles.banner_buttons}>
           <button
