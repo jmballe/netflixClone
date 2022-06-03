@@ -1,3 +1,4 @@
+import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import React, { useEffect } from "react";
 import { apiEntityOptions } from "../../apiConfig";
 import useApi from "../../hooks/useApi";
@@ -7,16 +8,10 @@ import styles from "./Banner.module.css";
 
 
 
-const Banner = () => {
+const Banner = ({type}) => {
   const [movie, loading, error, randomMovie, backImg] = useApi(
     apiEntityOptions.topRatedMovies
   );
-  
-  const limitCharacters = (text) => {
-    if(text != undefined){
-      text = text.substring(0, 60) + "...";
-    }
-  }
 
   return (
     <div
@@ -29,13 +24,21 @@ const Banner = () => {
             }
       }
     >
+      {type && (
+        <div className={styles.category}>
+          <span>{type === "Movie" ? "Movies" : "Series"}</span>
+          <select name="genre" id="genre">
+            <option>Genre</option>
+          </select>
+        </div>
+      )}
       <div className={styles.banner_gradient}>
-        <Separator height={"200px"} />
+        <Separator height={"270px"} />
 
         <div className={styles.banner_title}>
           <h1>{loading ? "Loading..." : randomMovie?.title}</h1>
         </div>
-        <Separator height={"40px"} />
+        {/* <Separator height={"30px"} /> */}
 
         <div className = {styles.banner_overview}>
           <h2>{loading ? "Loading..." : randomMovie?.overview.split(".")[0] + (randomMovie ? "." : "") }</h2>
@@ -46,10 +49,12 @@ const Banner = () => {
             onClick={() => {
               console.log(movie);
             }}
-          >
-            Play
+          ><PlayArrow fontSize="large"/>
+            <span>Play</span>
           </button>
-          <button className={styles.banner_button2}>More info</button>
+          <button className={styles.banner_button2}>
+            <InfoOutlined fontSize="large"/>
+            <span>More info</span></button>
         </div>
       </div>
     </div>

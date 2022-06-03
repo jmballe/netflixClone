@@ -37,11 +37,22 @@ code {
 }
 
 @font-face {
+    font-family: "NetflixSans";
+    src: url("./fonts/Netflix_Sans_Bold.otf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "NetflixSans";
+    src: url("./fonts/Netflix_Sans_Medium.otf") format("truetype");
+    font-weight: medium;
+}
+
+@font-face {
   font-family: "NetflixSans";
-  src: local("NetflixSans"),
-   url("./fonts/Netflix_Sans_Light.otf") format("truetype");
-   font-weight: normal;
-  }
+  src: url("./fonts/Netflix_Sans_Light.otf") format("truetype");
+  font-weight: lighter;
+}
 
 body {
     font-family: "NetflixSans";
