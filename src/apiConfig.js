@@ -5,9 +5,9 @@ export const API = {
     apiKey: '?api_key=96e69c404cd0460e36c3a4dacacdd719',
     entity: {
         topRatedMovies: '/movie/top_rated',
-        topRatedSeries: '/tv/top_rated',
+        topRatedTv: '/tv/top_rated',
         popularMovies: '/movie/popular',
-        popularSeries: '/tv/popular',
+        popularTv: '/tv/popular',
     },
     language: {
         es: '&language=es-ES',

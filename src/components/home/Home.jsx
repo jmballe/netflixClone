@@ -16,17 +16,17 @@ const Home = () => {
       {/* <Separator height={"40px"} /> */}
       <Carousel
         entity={apiEntityOptions.popularMovies}
-        title={"Popular"}
+        title={"Popular Movies"}
       />
       <Separator height={"40px"} />
       <Carousel
         entity={apiEntityOptions.topRatedMovies}
-        title="Peliculas mejor puntuadas"
+        title="Best Rated Movies"
       />
-      {/* <Separator height={"40px"} />
-      <Carousel entity={apiEntityOptions.popularTv} title="Series populares" />
       <Separator height={"40px"} />
-      <Carousel entity={apiEntityOptions.topRatedTv} title="Series mejor puntuadas" /> */}
+      <Carousel entity={apiEntityOptions.popularTv} title="Popular Tv Shows" />
+      <Separator height={"40px"} />
+      <Carousel entity={apiEntityOptions.topRatedTv} title="Best Rated Tv Shows" />
     </div>
   );
 };
